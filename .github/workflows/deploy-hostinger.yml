@@ -33,5 +33,8 @@ jobs:
           username: ${{ secrets.HOSTINGER_FTP_USER }}
           password: ${{ secrets.HOSTINGER_FTP_PASS }}
           port: ${{ secrets.HOSTINGER_FTP_PORT }}
+          protocol: ftps
+          security: loose
+          timeout: 120000
           local-dir: ./dist/
           server-dir: ${{ secrets.HOSTINGER_FTP_TARGET_DIR }}
