@@ -287,6 +287,34 @@ h2 {
   margin-bottom: 20px;
 }
 
+.reviews-grid {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0 24px;
+}
+
+.review-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #111, #0b0b0b);
+  padding: 16px;
+}
+
+.review-card p {
+  margin: 0 0 10px;
+  color: #efe4c3;
+}
+
+.review-card .stars {
+  color: var(--gold);
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.review-card strong {
+  color: var(--gold-soft);
+}
+
 .contact-grid {
   display: grid;
   gap: 24px;
@@ -417,5 +445,9 @@ h2 {
 
   .contact-grid {
     grid-template-columns: 1.1fr 1fr;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
