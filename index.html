@@ -1,13 +1,209 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>empire-rey-site</title>
+    <meta
+      name="description"
+      content="Empire Rey - Sales & Mechanic. Financiamiento facil, trade-ins, mecanica y atencion profesional."
+    />
+    <title>Empire Rey - Sales & Mechanic</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <header class="site-header">
+      <div class="top-bar">
+        <p>3510 Dixie Hwy, Louisville, KY 40216</p>
+        <div class="top-phones">
+          <a href="tel:+15025768116">(502) 576-8116</a>
+          <a href="tel:+15027801096">(502) 780-1096</a>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a class="brand" href="#inicio">
+          <img id="logoImage" alt="Empire Rey Logo" />
+          <span>Empire Rey</span>
+        </a>
+        <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">Menu</button>
+        <ul id="navLinks" class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#sold">Autos Vendidos</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+        <a class="btn-call" href="tel:+15025768116">Call Now</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero reveal">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Empire Rey - Sales & Mechanic</p>
+          <h1>Financiamiento Facil. Aqui Te Aprobamos!</h1>
+          <p class="subheadline">Sin credito, ITIN o solo ID - Ven Hoy.</p>
+          <a class="btn-gold" href="#contact">Agendar Cita</a>
+        </div>
+      </section>
+
+      <section id="about" class="section about reveal">
+        <div class="section-inner">
+          <h2>Nosotros</h2>
+          <p>We help everyone get approved. Easy financing. Fast process.</p>
+        </div>
+      </section>
+
+      <section id="mascot" class="section mascot reveal">
+        <div class="section-inner mascot-grid">
+          <div class="mascot-copy">
+            <h2>Mascota</h2>
+            <p>Tu aliado para aprobar tu carro hoy mismo.</p>
+          </div>
+          <div class="mascot-image-wrap">
+            <img id="mascotImage" alt="Mascota Empire Rey" />
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section services reveal">
+        <div class="section-inner">
+          <h2>Servicios</h2>
+          <div class="service-grid">
+            <article class="card">Financing</article>
+            <article class="card">Trade-ins accepted</article>
+            <article class="card">Repair services</article>
+            <article class="card">Weekly payments from $85</article>
+          </div>
+        </div>
+      </section>
+
+      <section id="sold" class="section sold reveal">
+        <div class="section-inner">
+          <h2>Casos de Autos Vendidos</h2>
+          <div id="soldGallery" class="sold-grid"></div>
+        </div>
+      </section>
+
+      <section id="reviews" class="section reviews reveal">
+        <div class="section-inner">
+          <h2>Lo Que Dicen Nuestros Clientes</h2>
+          <p>Historias reales de clientes aprobados y satisfechos.</p>
+          <a
+            class="btn-gold"
+            href="https://www.google.com/maps/place/Empire+Rey+Auto+Sale"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Ver Reviews en Google</a
+          >
+        </div>
+      </section>
+
+      <section id="contact" class="section contact reveal">
+        <div class="section-inner contact-grid">
+          <div class="contact-info">
+            <h2>Contacto y Citas</h2>
+            <p><strong>Direccion:</strong> 3510 Dixie Hwy, Louisville, KY 40216</p>
+            <p><strong>Telefono 1:</strong> <a href="tel:+15025768116">(502) 576-8116</a></p>
+            <p><strong>Telefono 2:</strong> <a href="tel:+15027801096">(502) 780-1096</a></p>
+            <iframe
+              title="Mapa Empire Rey"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=3510%20Dixie%20Hwy,%20Louisville,%20KY%2040216&output=embed"
+            ></iframe>
+          </div>
+          <form class="contact-form">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="vehicle">Interested Vehicle</label>
+            <input id="vehicle" name="vehicle" type="text" />
+
+            <label for="date">Preferred Appointment Date</label>
+            <input id="date" name="date" type="date" />
+
+            <button type="submit" class="btn-gold">Enviar Cita</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <a class="whatsapp-float" href="#contact" aria-label="WhatsApp contacto visual">WhatsApp</a>
+
+    <footer class="site-footer">
+      <p>Empire Rey - Sales & Mechanic</p>
+      <p>3510 Dixie Hwy, Louisville, KY 40216</p>
+      <p><a href="tel:+15025768116">(502) 576-8116</a> | <a href="tel:+15027801096">(502) 780-1096</a></p>
+      <p class="socials">Facebook | Instagram | TikTok</p>
+    </footer>
+
+    <script type="module">
+      const logoFiles = import.meta.glob("./Logo/*.{png,jpg,jpeg,webp,svg}", {
+        eager: true,
+        query: "?url",
+        import: "default",
+      });
+      const heroFiles = import.meta.glob("./Portada/*.{png,jpg,jpeg,webp,svg}", {
+        eager: true,
+        query: "?url",
+        import: "default",
+      });
+      const mascotFiles = import.meta.glob("./Mascota/*.{png,jpg,jpeg,webp,svg}", {
+        eager: true,
+        query: "?url",
+        import: "default",
+      });
+      const soldFiles = import.meta.glob(
+        "./Casos de autos vendidos/*.{png,jpg,jpeg,webp,svg}",
+        { eager: true, query: "?url", import: "default" }
+      );
+
+      const first = (obj) => Object.values(obj).sort()[0];
+      const logoSrc = first(logoFiles);
+      const heroSrc = first(heroFiles);
+      const mascotSrc = first(mascotFiles);
+      const soldSrcs = Object.values(soldFiles).sort();
+
+      if (logoSrc) document.getElementById("logoImage").src = logoSrc;
+      if (heroSrc) document.querySelector(".hero").style.backgroundImage = `url(${heroSrc})`;
+      if (mascotSrc) document.getElementById("mascotImage").src = mascotSrc;
+
+      const soldGallery = document.getElementById("soldGallery");
+      soldSrcs.forEach((src, index) => {
+        const card = document.createElement("article");
+        card.className = "sold-card";
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `Auto vendido ${index + 1}`;
+        card.appendChild(img);
+        soldGallery.appendChild(card);
+      });
+
+      const sections = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.18 }
+      );
+      sections.forEach((section) => observer.observe(section));
+
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      menuToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
+      navLinks.querySelectorAll("a").forEach((link) =>
+        link.addEventListener("click", () => navLinks.classList.remove("open"))
+      );
+    </script>
   </body>
 </html>
