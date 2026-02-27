@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (window.location.pathname === '/admin') {
+      window.location.replace('https://bot-dealer-para-rey.vercel.app/')
+    }
+  }, [])
 
   return (
     <>
@@ -28,6 +34,22 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <a
+        href="/admin"
+        aria-label="admin"
+        style={{
+          position: 'fixed',
+          bottom: '6px',
+          right: '8px',
+          opacity: 0.02,
+          fontSize: '10px',
+          color: 'transparent',
+          textDecoration: 'none',
+          userSelect: 'none',
+        }}
+      >
+        admin
+      </a>
     </>
   )
 }
