@@ -42,7 +42,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <p class="eyebrow">Empire Rey - Sales & Mechanic</p>
-          <h1>Financiamiento Facil. Aqui Te Aprobamos!</h1>
+          <h1>Que hubo mi gente linda de Kentucky</h1>
           <p class="subheadline">Sin credito, ITIN o solo ID - Ven Hoy.</p>
           <a class="btn-gold" href="#contact">Agendar Cita</a>
         </div>
@@ -173,6 +173,7 @@
         query: "?url",
         import: "default",
       });
+      const hiddenHeroPhotos = new Set(["588721866_839012729108269_4655180508387803109_n.jpg"]);
       const mascotFiles = import.meta.glob("./Mascota/*.{png,jpg,jpeg,webp,svg}", {
         eager: true,
         query: "?url",
@@ -182,12 +183,22 @@
         "./Casos de autos vendidos/*.{png,jpg,jpeg,webp,svg}",
         { eager: true, query: "?url", import: "default" }
       );
+      const hiddenSoldPhotos = new Set([
+        "595074674_846841291658746_1476586188343971499_n.jpg",
+        "605127263_868224342853774_1597893891073389201_n.jpg",
+      ]);
 
       const first = (obj) => Object.values(obj).sort()[0];
       const logoSrc = first(logoFiles);
-      const heroSrc = first(heroFiles);
+      const heroSrc = Object.entries(heroFiles)
+        .filter(([filePath]) => !hiddenHeroPhotos.has(filePath.split("/").pop()))
+        .map(([, src]) => src)
+        .sort()[0];
       const mascotSrc = first(mascotFiles);
-      const soldSrcs = Object.values(soldFiles).sort();
+      const soldSrcs = Object.entries(soldFiles)
+        .filter(([filePath]) => !hiddenSoldPhotos.has(filePath.split("/").pop()))
+        .map(([, src]) => src)
+        .sort();
 
       if (logoSrc) document.getElementById("logoImage").src = logoSrc;
       if (heroSrc) document.querySelector(".hero").style.backgroundImage = `url(${heroSrc})`;

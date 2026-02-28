@@ -169,9 +169,16 @@ a {
 }
 
 h1 {
-  margin: 8px 0;
-  font-size: clamp(2rem, 8vw, 4rem);
-  line-height: 1.08;
+  margin: 6px 0 12px;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: clamp(2.4rem, 9vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff8df;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+  text-wrap: balance;
 }
 
 .subheadline {
@@ -451,3 +458,4 @@ h2 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
