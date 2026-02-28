@@ -122,6 +122,42 @@ a {
   cursor: pointer;
 }
 
+.nav-socials {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 86px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: rgba(14, 14, 14, 0.86);
+  color: var(--gold-soft);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.social-pill:hover {
+  transform: translateY(-1px);
+  border-color: var(--gold);
+  background: rgba(27, 20, 5, 0.92);
+}
+
+.social-pill.facebook {
+  border-color: rgba(88, 144, 255, 0.45);
+}
+
+.social-pill.tiktok {
+  border-color: rgba(255, 78, 118, 0.45);
+}
+
 .btn-call {
   background: var(--red);
   color: #fff;
@@ -462,6 +498,10 @@ h2 {
     background: transparent;
     border: none;
     padding: 0;
+  }
+
+  .nav-socials {
+    display: flex;
   }
 
   .top-bar {
