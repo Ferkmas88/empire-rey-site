@@ -90,6 +90,33 @@
         </div>
       </section>
 
+      <section id="rey-story" class="section rey-story reveal">
+        <div class="section-inner rey-story-grid">
+          <div class="rey-story-copy">
+            <p class="eyebrow">Vision y compromiso</p>
+            <h2>Liderando con vision y determinacion</h2>
+            <p>
+              Liderando con vision y determinacion, Rey ha construido un negocio basado en oportunidades reales.
+              Financiamiento flexible, atencion directa y compromiso con cada cliente que cruza la puerta.
+            </p>
+            <p class="rey-story-highlight">Aqui no solo compras un auto.</p>
+            <p class="rey-story-highlight">Comienzas un nuevo camino.</p>
+          </div>
+          <div class="rey-story-media" aria-label="Fotos de Rey">
+            <article class="rey-photo-card">
+              <img src="/rey/1ge 2026-02-27 at 9.12.30 PM.jpeg" alt="Rey atendiendo clientes" loading="lazy" />
+            </article>
+            <article class="rey-photo-card">
+              <img
+                src="/rey/WhatsApp Image 2026-02-27 at 9.12.30 PM.jpeg"
+                alt="Rey en Empire Rey Sales and Mechanic"
+                loading="lazy"
+              />
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="mascot" class="section mascot reveal">
         <div class="section-inner mascot-grid">
           <div class="mascot-copy">
@@ -293,6 +320,19 @@
       navLinks.querySelectorAll("a").forEach((link) =>
         link.addEventListener("click", () => navLinks.classList.remove("open"))
       );
+
+      const reyStorySection = document.querySelector(".rey-story");
+      if (reyStorySection) {
+        const syncScrollProgress = () => {
+          const rect = reyStorySection.getBoundingClientRect();
+          const viewportHeight = window.innerHeight || 1;
+          const progress = Math.min(Math.max((viewportHeight - rect.top) / (viewportHeight + rect.height), 0), 1);
+          reyStorySection.style.setProperty("--story-scroll-progress", progress.toFixed(3));
+        };
+        syncScrollProgress();
+        window.addEventListener("scroll", syncScrollProgress, { passive: true });
+        window.addEventListener("resize", syncScrollProgress);
+      }
     </script>
   </body>
 </html>

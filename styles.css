@@ -301,6 +301,86 @@ h2 {
   font-weight: 700;
 }
 
+.rey-story {
+  position: relative;
+  overflow: hidden;
+  --story-scroll-progress: 0;
+}
+
+.rey-story::before {
+  content: "";
+  position: absolute;
+  inset: 12% -20% auto;
+  height: 68%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, rgba(212, 175, 55, 0) 72%);
+  pointer-events: none;
+}
+
+.rey-story-grid {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.rey-story-copy p {
+  max-width: 62ch;
+  color: #f0e5c5;
+  font-size: 1.06rem;
+}
+
+.rey-story-highlight {
+  margin: 6px 0;
+  color: var(--gold-soft);
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.rey-story-media {
+  display: grid;
+  gap: 14px;
+}
+
+.rey-photo-card {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.33);
+  background: linear-gradient(180deg, #16120b, #080808);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(212, 175, 55, 0.08) inset;
+  opacity: 0;
+  transform: translateY(28px) scale(0.96);
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.8s ease, border-color 0.35s ease;
+  will-change: transform, opacity;
+}
+
+.rey-photo-card:nth-child(2) {
+  transition-delay: 0.14s;
+}
+
+.rey-photo-card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.rey-story.visible .rey-photo-card {
+  opacity: 1;
+}
+
+.rey-story.visible .rey-photo-card:nth-child(1) {
+  transform: translateY(calc((0.5 - var(--story-scroll-progress)) * 22px)) scale(1);
+}
+
+.rey-story.visible .rey-photo-card:nth-child(2) {
+  transform: translateY(calc((var(--story-scroll-progress) - 0.5) * 22px)) scale(1);
+}
+
+.rey-photo-card:hover {
+  border-color: rgba(212, 175, 55, 0.7);
+}
+
 .mascot-grid {
   display: grid;
   gap: 24px;
@@ -536,6 +616,15 @@ h2 {
   .mascot-grid {
     grid-template-columns: 1fr 1fr;
     align-items: center;
+  }
+
+  .rey-story-grid {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 26px;
+  }
+
+  .rey-story-media {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .service-grid {
