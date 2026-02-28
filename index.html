@@ -45,6 +45,13 @@
             >Facebook</a
           >
           <a
+            class="social-pill instagram"
+            href="https://www.instagram.com/empire_rey_auto_sale?igsh=MTRndzlwYzlhZHprOQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <a
             class="social-pill tiktok"
             href="https://www.tiktok.com/@empire_rey_auto.sales"
             target="_blank"
@@ -62,7 +69,7 @@
         <div class="hero-layout">
           <div class="hero-content">
             <p class="eyebrow">Empire Rey - Sales & Mechanic</p>
-            <h1>Que hubo mi gente linda de Kentucky</h1>
+            <h1 class="holographic-title">Que hubo mi gente linda de Kentucky</h1>
             <p class="subheadline">Sin credito, ITIN o solo ID - Ven Hoy.</p>
             <div class="hero-cta-row">
               <a class="btn-gold" href="#contact">Agendar Cita</a>
@@ -224,6 +231,37 @@
       >WhatsApp</a
     >
 
+    <div id="offerPopup" class="offer-popup" aria-hidden="true">
+      <div id="offerBackdrop" class="offer-backdrop"></div>
+      <article class="offer-modal" role="dialog" aria-modal="true" aria-labelledby="offerTitle">
+        <button id="offerClose" class="offer-close" type="button" aria-label="Cerrar oferta">x</button>
+        <div class="offer-media">
+          <img id="offerCarImage" alt="Auto de oferta Empire Rey" loading="lazy" />
+        </div>
+        <div class="offer-copy">
+          <p class="offer-chip">Oferta Especial</p>
+          <h3 id="offerTitle">Deja tu review + captura y recibe $500 OFF</h3>
+          <p>
+            Si dejas tu review en Google y nos enseñas una captura de pantalla, te damos
+            <strong>$500 de descuento</strong>.
+          </p>
+          <div class="offer-actions">
+            <a
+              class="btn-gold"
+              href="https://www.google.com/maps/place/Empire+Rey+Sales+%26+Mechanic/@38.2003903,-85.8056915,17z/data=!3m1!4b1!4m6!3m5!1s0x88691377a904f4bb:0x57065527df01eb0a!8m2!3d38.2003861!4d-85.8031166!16s%2Fg%2F11mybyfkmf?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Dejar Review</a
+            >
+            <a class="offer-secondary" href="https://wa.me/15025768116" target="_blank" rel="noopener noreferrer"
+              >Enviar Captura</a
+            >
+          </div>
+          <p class="offer-note">Aplican terminos y condiciones.</p>
+        </div>
+      </article>
+    </div>
+
     <footer class="site-footer">
       <p>Empire Rey - Sales & Mechanic</p>
       <p>3510 Dixie Hwy, Louisville, KY 40216</p>
@@ -231,6 +269,13 @@
       <p class="socials">
         <a href="https://www.facebook.com/reyder.quevedo.2025" target="_blank" rel="noopener noreferrer"
           >Facebook</a
+        >
+        |
+        <a
+          href="https://www.instagram.com/empire_rey_auto_sale?igsh=MTRndzlwYzlhZHprOQ=="
+          target="_blank"
+          rel="noopener noreferrer"
+          >Instagram</a
         >
         |
         <a href="https://www.tiktok.com/@empire_rey_auto.sales" target="_blank" rel="noopener noreferrer"
@@ -291,6 +336,8 @@
       if (heroSrc) document.querySelector(".hero").style.backgroundImage = `url(${heroSrc})`;
       if (heroSideVideoSrc) document.getElementById("heroSideVideo").src = heroSideVideoSrc;
       if (mascotSrc) document.getElementById("mascotImage").src = mascotSrc;
+      const offerCarImage = document.getElementById("offerCarImage");
+      if (offerCarImage) offerCarImage.src = soldSrcs[0] || heroSrc || mascotSrc || "";
 
       const soldGallery = document.getElementById("soldGallery");
       soldSrcs.forEach((src, index) => {
@@ -333,6 +380,26 @@
         window.addEventListener("scroll", syncScrollProgress, { passive: true });
         window.addEventListener("resize", syncScrollProgress);
       }
+
+      const offerPopup = document.getElementById("offerPopup");
+      const offerBackdrop = document.getElementById("offerBackdrop");
+      const offerClose = document.getElementById("offerClose");
+      const closeOfferPopup = () => {
+        offerPopup.classList.remove("active");
+        offerPopup.setAttribute("aria-hidden", "true");
+        sessionStorage.setItem("offer500Seen", "true");
+      };
+      if (offerPopup && sessionStorage.getItem("offer500Seen") !== "true") {
+        setTimeout(() => {
+          offerPopup.classList.add("active");
+          offerPopup.setAttribute("aria-hidden", "false");
+        }, 1200);
+      }
+      if (offerBackdrop) offerBackdrop.addEventListener("click", closeOfferPopup);
+      if (offerClose) offerClose.addEventListener("click", closeOfferPopup);
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && offerPopup?.classList.contains("active")) closeOfferPopup();
+      });
     </script>
   </body>
 </html>
