@@ -43,11 +43,27 @@
     <main>
       <section id="inicio" class="hero reveal">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Empire Rey - Sales & Mechanic</p>
-          <h1>Que hubo mi gente linda de Kentucky</h1>
-          <p class="subheadline">Sin credito, ITIN o solo ID - Ven Hoy.</p>
-          <a class="btn-gold" href="#contact">Agendar Cita</a>
+        <div class="hero-layout">
+          <div class="hero-content">
+            <p class="eyebrow">Empire Rey - Sales & Mechanic</p>
+            <h1>Que hubo mi gente linda de Kentucky</h1>
+            <p class="subheadline">Sin credito, ITIN o solo ID - Ven Hoy.</p>
+            <div class="hero-cta-row">
+              <a class="btn-gold" href="#contact">Agendar Cita</a>
+              <a
+                class="btn-gold"
+                href="https://www.google.com/maps/place/Empire+Rey+Sales+%26+Mechanic/@38.2003903,-85.8056915,17z/data=!3m1!4b1!4m6!3m5!1s0x88691377a904f4bb:0x57065527df01eb0a!8m2!3d38.2003861!4d-85.8031166!16s%2Fg%2F11mybyfkmf?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Ver Reviews en Google</a
+              >
+            </div>
+          </div>
+          <aside class="hero-side-media" aria-label="Video destacado">
+            <article class="hero-media-card">
+              <video id="heroSideVideo" autoplay muted loop playsinline></video>
+            </article>
+          </aside>
         </div>
       </section>
 
@@ -112,7 +128,7 @@
           </div>
           <a
             class="btn-gold"
-            href="https://www.google.com/maps/place/Empire+Rey+Auto+Sale"
+            href="https://www.google.com/maps/place/Empire+Rey+Sales+%26+Mechanic/@38.2003903,-85.8056915,17z/data=!3m1!4b1!4m6!3m5!1s0x88691377a904f4bb:0x57065527df01eb0a!8m2!3d38.2003861!4d-85.8031166!16s%2Fg%2F11mybyfkmf?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
             >Ver Reviews en Google</a
@@ -176,6 +192,11 @@
         query: "?url",
         import: "default",
       });
+      const heroVideoFiles = import.meta.glob("./Portada/*.{mp4,webm,mov,m4v}", {
+        eager: true,
+        query: "?url",
+        import: "default",
+      });
       const hiddenHeroPhotos = new Set(["588721866_839012729108269_4655180508387803109_n.jpg"]);
       const mascotFiles = import.meta.glob("./Mascota/*.{png,jpg,jpeg,webp,svg}", {
         eager: true,
@@ -192,11 +213,16 @@
       ]);
 
       const first = (obj) => Object.values(obj).sort()[0];
+      const byFileName = (files, name) =>
+        Object.entries(files).find(([filePath]) => filePath.split("/").pop() === name)?.[1];
       const logoSrc = first(logoFiles);
       const heroSrc = Object.entries(heroFiles)
         .filter(([filePath]) => !hiddenHeroPhotos.has(filePath.split("/").pop()))
         .map(([, src]) => src)
         .sort()[0];
+      const heroSideVideoSrc =
+        byFileName(heroVideoFiles, "WhatsApp Video 2026-02-27 at 9.35.07 PM.mp4") ||
+        first(heroVideoFiles);
       const mascotSrc = first(mascotFiles);
       const soldSrcs = Object.entries(soldFiles)
         .filter(([filePath]) => !hiddenSoldPhotos.has(filePath.split("/").pop()))
@@ -205,6 +231,7 @@
 
       if (logoSrc) document.getElementById("logoImage").src = logoSrc;
       if (heroSrc) document.querySelector(".hero").style.backgroundImage = `url(${heroSrc})`;
+      if (heroSideVideoSrc) document.getElementById("heroSideVideo").src = heroSideVideoSrc;
       if (mascotSrc) document.getElementById("mascotImage").src = mascotSrc;
 
       const soldGallery = document.getElementById("soldGallery");
