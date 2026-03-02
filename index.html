@@ -231,8 +231,13 @@
       >WhatsApp</a
     >
 
-    <div id="rotatingPromo" class="rotating-promo" aria-live="polite">
-      <p id="rotatingPromoText"></p>
+    <div id="offerAnnouncement" class="offer-announcement" aria-live="polite" aria-hidden="true">
+      <div class="offer-announcement__badge">
+        <span class="offer-announcement__icon" aria-hidden="true">%</span>
+        <span>OFERTA ESPECIAL</span>
+      </div>
+      <p>¿Madre soltera? ¡Tenemos planes especiales para ti desde $85/semana!</p>
+      <p>¿Tienes un carro viejo? ¡Lo recibimos como parte de pago!</p>
     </div>
 
     <div id="offerPopup" class="offer-popup" aria-hidden="true">
@@ -405,32 +410,19 @@
         if (event.key === "Escape" && offerPopup?.classList.contains("active")) closeOfferPopup();
       });
 
-      const promoMessages = [
-        "¿Madre soltera? ¡Tenemos planes especiales para ti desde $85/semana!",
-        "¿Tienes un carro viejo? ¡Lo recibimos como parte de pago!",
-      ];
-      const rotatingPromo = document.getElementById("rotatingPromo");
-      const rotatingPromoText = document.getElementById("rotatingPromoText");
-      if (rotatingPromo && rotatingPromoText) {
-        let promoIndex = 0;
+      const offerAnnouncement = document.getElementById("offerAnnouncement");
+      const offerAnnouncementSeenKey = "offerAnnouncementSeenV1";
+      if (offerAnnouncement && localStorage.getItem(offerAnnouncementSeenKey) !== "true") {
+        setTimeout(() => {
+          offerAnnouncement.classList.add("is-visible");
+          offerAnnouncement.setAttribute("aria-hidden", "false");
+          localStorage.setItem(offerAnnouncementSeenKey, "true");
+        }, 1200);
 
-        const showPromo = () => {
-          rotatingPromo.classList.remove("is-visible");
-          setTimeout(() => {
-            rotatingPromoText.textContent = promoMessages[promoIndex];
-            rotatingPromo.classList.add("is-visible");
-          }, 120);
-
-          setTimeout(() => {
-            rotatingPromo.classList.remove("is-visible");
-          }, 6500);
-        };
-
-        showPromo();
-        setInterval(() => {
-          promoIndex = (promoIndex + 1) % promoMessages.length;
-          showPromo();
-        }, 15000);
+        setTimeout(() => {
+          offerAnnouncement.classList.remove("is-visible");
+          offerAnnouncement.setAttribute("aria-hidden", "true");
+        }, 9800);
       }
     </script>
   </body>
