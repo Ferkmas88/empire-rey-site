@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+const promoMessages = [
+  '¿Madre soltera? ¡Tenemos planes especiales para ti desde $85/semana!',
+  '¿Tienes un carro viejo? ¡Lo recibimos como parte de pago!',
+]
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [activePromo, setActivePromo] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     if (window.location.pathname === '/admin') {
@@ -12,28 +16,39 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    const rotateInterval = setInterval(() => {
+      setActivePromo((current) => (current + 1) % promoMessages.length)
+    }, 15000)
+
+    return () => {
+      clearInterval(rotateInterval)
+    }
+  }, [])
+
+  useEffect(() => {
+    let hideTimeout
+    const showTimeout = setTimeout(() => {
+      setIsVisible(true)
+    }, 80)
+
+    hideTimeout = setTimeout(() => {
+      setIsVisible(false)
+    }, 6000)
+
+    return () => {
+      clearTimeout(showTimeout)
+      clearTimeout(hideTimeout)
+    }
+  }, [activePromo])
+
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="promo-stack" aria-live="polite">
+        <div className={`promo-toast ${isVisible ? 'promo-toast--visible' : ''}`}>
+          {promoMessages[activePromo]}
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
       <a
         href="/admin"
         aria-label="admin"
