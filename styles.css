@@ -658,6 +658,37 @@ h2 {
   z-index: 50;
 }
 
+.rotating-promo {
+  position: fixed;
+  left: 50%;
+  bottom: 76px;
+  transform: translateX(-50%) translateY(36px);
+  width: min(92vw, 420px);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.42);
+  background: rgba(10, 10, 10, 0.92);
+  color: #fff3cc;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.34);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.45s ease, opacity 0.45s ease;
+  z-index: 120;
+}
+
+.rotating-promo p {
+  margin: 0;
+}
+
+.rotating-promo.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .offer-popup {
   position: fixed;
   inset: 0;
