@@ -32,3 +32,17 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+@media (max-width: 759px) {
+  .promo-stack {
+    bottom: 10px;
+    width: min(82vw, 320px);
+  }
+
+  .promo-toast {
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 0.76rem;
+    line-height: 1.25;
+  }
+}

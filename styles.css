@@ -916,6 +916,71 @@ h2 {
   color: #baa770;
 }
 
+@media (max-width: 759px) {
+  .hero-layout {
+    position: relative;
+  }
+
+  .hero-content {
+    padding: 24px 18px 150px;
+  }
+
+  .hero-side-media {
+    position: absolute;
+    right: 12px;
+    bottom: 18px;
+    width: min(36vw, 132px);
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero-media-card {
+    border-radius: 10px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.32);
+  }
+
+  .offer-modal {
+    width: min(84vw, 380px);
+    border-radius: 14px;
+  }
+
+  .offer-close {
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .offer-media,
+  .offer-media img {
+    min-height: 160px;
+  }
+
+  .offer-copy {
+    padding: 14px 12px 12px;
+  }
+
+  .offer-copy h3 {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+
+  .offer-copy p {
+    font-size: 0.9rem;
+  }
+
+  .offer-actions {
+    gap: 8px;
+  }
+
+  .offer-actions .btn-gold,
+  .offer-secondary {
+    min-height: 40px;
+    padding: 9px 13px;
+    font-size: 0.86rem;
+  }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
