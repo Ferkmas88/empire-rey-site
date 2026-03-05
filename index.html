@@ -217,6 +217,7 @@
             <p><strong>Direccion:</strong> 3510 Dixie Hwy, Louisville, KY 40216</p>
             <p><strong>Telefono 1:</strong> <a href="tel:+15025768116">(502) 576-8116</a></p>
             <p><strong>Telefono 2:</strong> <a href="tel:+15027801096">(502) 780-1096</a></p>
+            <p><strong>Email:</strong> <a href="mailto:rey1309ltu@gmail.com">rey1309ltu@gmail.com</a></p>
             <iframe
               title="Mapa Empire Rey"
               loading="lazy"
@@ -224,7 +225,11 @@
               src="https://www.google.com/maps?q=3510%20Dixie%20Hwy,%20Louisville,%20KY%2040216&output=embed"
             ></iframe>
           </div>
-          <form class="contact-form">
+          <form class="contact-form" action="https://formsubmit.co/rey1309ltu@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nueva cita desde Empire Rey Website" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" />
             <label for="name">Name</label>
             <input id="name" name="name" type="text" required />
 
@@ -295,6 +300,24 @@
         </div>
       </article>
     </div>
+
+    <aside id="raffleSideAd" class="raffle-side-ad" aria-live="polite" aria-hidden="true">
+      <button id="raffleSideAdClose" class="raffle-side-ad__close" type="button" aria-label="Cerrar anuncio">
+        x
+      </button>
+      <p class="raffle-side-ad__title">🚗 ¡RIFAMOS CARROS!</p>
+      <p class="raffle-side-ad__subtitle">En Empire Rey Auto Sales</p>
+      <p>🎟 Participa y gana tu auto</p>
+      <p>💥 Sorteos especiales para nuestra comunidad</p>
+      <a
+        class="btn-gold raffle-side-ad__cta"
+        href="https://wa.me/15025768116"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        👉 Pregunta cómo participar
+      </a>
+    </aside>
 
     <footer class="site-footer">
       <p>Empire Rey - Sales & Mechanic</p>
@@ -415,11 +438,14 @@
         offerPopup.classList.remove("active");
         offerPopup.setAttribute("aria-hidden", "true");
       };
+      const showOfferPopup = () => {
+        if (!offerPopup) return;
+        offerPopup.classList.add("active");
+        offerPopup.setAttribute("aria-hidden", "false");
+      };
       if (offerPopup) {
-        setTimeout(() => {
-          offerPopup.classList.add("active");
-          offerPopup.setAttribute("aria-hidden", "false");
-        }, 1200);
+        setTimeout(showOfferPopup, 1200);
+        setInterval(showOfferPopup, 60000);
       }
       if (offerBackdrop) offerBackdrop.addEventListener("click", closeOfferPopup);
       if (offerClose) offerClose.addEventListener("click", closeOfferPopup);
@@ -428,16 +454,40 @@
       });
 
       const offerAnnouncement = document.getElementById("offerAnnouncement");
-      if (offerAnnouncement) {
-        setTimeout(() => {
-          offerAnnouncement.classList.add("is-visible");
-          offerAnnouncement.setAttribute("aria-hidden", "false");
-        }, 1200);
-
+      const showOfferAnnouncement = () => {
+        if (!offerAnnouncement) return;
+        offerAnnouncement.classList.add("is-visible");
+        offerAnnouncement.setAttribute("aria-hidden", "false");
         setTimeout(() => {
           offerAnnouncement.classList.remove("is-visible");
           offerAnnouncement.setAttribute("aria-hidden", "true");
-        }, 9800);
+        }, 9000);
+      };
+      if (offerAnnouncement) {
+        setTimeout(showOfferAnnouncement, 3000);
+        setInterval(showOfferAnnouncement, 30000);
+      }
+
+      const raffleSideAd = document.getElementById("raffleSideAd");
+      const raffleSideAdClose = document.getElementById("raffleSideAdClose");
+      const showRaffleSideAd = () => {
+        if (!raffleSideAd) return;
+        raffleSideAd.classList.add("is-visible");
+        raffleSideAd.setAttribute("aria-hidden", "false");
+        setTimeout(() => {
+          raffleSideAd.classList.remove("is-visible");
+          raffleSideAd.setAttribute("aria-hidden", "true");
+        }, 12000);
+      };
+      if (raffleSideAd) {
+        setTimeout(showRaffleSideAd, 10000);
+        setInterval(showRaffleSideAd, 30000);
+      }
+      if (raffleSideAdClose && raffleSideAd) {
+        raffleSideAdClose.addEventListener("click", () => {
+          raffleSideAd.classList.remove("is-visible");
+          raffleSideAd.setAttribute("aria-hidden", "true");
+        });
       }
     </script>
   </body>
