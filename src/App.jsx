@@ -2,19 +2,13 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 const promoMessages = [
-  '¿Madre soltera? ¡Tenemos planes especiales para ti desde $85/semana!',
-  '¿Tienes un carro viejo? ¡Lo recibimos como parte de pago!',
+  'Madre soltera? Tenemos planes especiales para ti desde $85/semana.',
+  'Tienes un carro viejo? Lo recibimos como parte de pago.',
 ]
 
 function App() {
   const [activePromo, setActivePromo] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    if (window.location.pathname === '/admin') {
-      window.location.replace('https://bot-dealer-para-rey.vercel.app/')
-    }
-  }, [])
 
   useEffect(() => {
     const rotateInterval = setInterval(() => {
@@ -27,12 +21,11 @@ function App() {
   }, [])
 
   useEffect(() => {
-    let hideTimeout
     const showTimeout = setTimeout(() => {
       setIsVisible(true)
     }, 80)
 
-    hideTimeout = setTimeout(() => {
+    const hideTimeout = setTimeout(() => {
       setIsVisible(false)
     }, 6000)
 
@@ -43,29 +36,11 @@ function App() {
   }, [activePromo])
 
   return (
-    <>
-      <div className="promo-stack" aria-live="polite">
-        <div className={`promo-toast ${isVisible ? 'promo-toast--visible' : ''}`}>
-          {promoMessages[activePromo]}
-        </div>
+    <div className="promo-stack" aria-live="polite">
+      <div className={`promo-toast ${isVisible ? 'promo-toast--visible' : ''}`}>
+        {promoMessages[activePromo]}
       </div>
-      <a
-        href="/admin"
-        aria-label="admin"
-        style={{
-          position: 'fixed',
-          bottom: '6px',
-          right: '8px',
-          opacity: 0.02,
-          fontSize: '10px',
-          color: 'transparent',
-          textDecoration: 'none',
-          userSelect: 'none',
-        }}
-      >
-        admin
-      </a>
-    </>
+    </div>
   )
 }
 

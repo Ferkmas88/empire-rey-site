@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del auto | Empire Rey Auto Sales & Mechanic</title>
+    <meta
+      name="description"
+      content="Revisa el detalle del auto, galeria, specs, precio, millaje y agenda una cita con Empire Rey."
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/autos/autos.css" />
+    <link rel="stylesheet" href="./detail.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="top-bar">
+        <p>3510 Dixie Hwy, Louisville, KY 40216</p>
+        <div class="top-phones">
+          <a href="tel:+15025768116">(502) 576-8116</a>
+          <a href="tel:+15027801096">(502) 780-1096</a>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a class="brand" href="/#inicio">
+          <img id="logoImage" alt="Empire Rey Logo" />
+          <span>Empire Rey</span>
+        </a>
+        <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">Menu</button>
+        <ul id="navLinks" class="nav-links">
+          <li><a href="/#inicio">Inicio</a></li>
+          <li><a href="/#about">Nosotros</a></li>
+          <li><a href="/#services">Servicios</a></li>
+          <li><a href="/autos/">Autos</a></li>
+          <li><a href="/#sold">Autos Vendidos</a></li>
+          <li><a href="/#reviews">Reviews</a></li>
+          <li><a href="/#contact">Contacto</a></li>
+          <li><a href="/#patrocinado">Patrocinado</a></li>
+        </ul>
+        <div class="nav-socials" aria-label="Redes sociales">
+          <a
+            class="social-pill facebook"
+            href="https://www.facebook.com/reyder.quevedo.2025"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Facebook</a
+          >
+          <a
+            class="social-pill instagram"
+            href="https://www.instagram.com/empire_rey_auto_sale?igsh=MTRndzlwYzlhZHprOQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <a
+            class="social-pill tiktok"
+            href="https://www.tiktok.com/@empire_rey_auto.sales"
+            target="_blank"
+            rel="noopener noreferrer"
+            >TikTok</a
+          >
+        </div>
+        <a class="btn-call" href="tel:+15025768116">Call Now</a>
+      </nav>
+    </header>
+
+    <main class="detail-page">
+      <section class="section detail-shell">
+        <div class="section-inner">
+          <div class="detail-breadcrumbs">
+            <a href="/autos/">Autos</a>
+            <span>/</span>
+            <span id="detailBreadcrumb">Detalle</span>
+          </div>
+
+          <div id="carDetail" class="detail-layout"></div>
+        </div>
+      </section>
+
+      <section id="cita" class="section autos-section detail-form-section">
+        <div class="section-inner autos-leads-grid">
+          <div class="autos-copy-block">
+            <p class="eyebrow">Cita del auto</p>
+            <h2>Agenda la visita de esta unidad</h2>
+            <p>
+              El auto de interes se llena automaticamente. Tu solo eliges fecha aproximada y datos de contacto.
+            </p>
+          </div>
+          <form class="contact-form autos-form" action="https://formsubmit.co/rey1309ltu@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nueva cita desde detalle de auto - Empire Rey" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="source" value="auto_detail_appointment" />
+            <input id="detail-car-id" name="car_id" type="hidden" />
+            <label for="detail-name">Nombre</label>
+            <input id="detail-name" name="name" type="text" required />
+
+            <label for="detail-phone">Telefono</label>
+            <input id="detail-phone" name="phone" type="tel" />
+
+            <label for="detail-email">Email</label>
+            <input id="detail-email" name="email" type="email" />
+
+            <label for="detail-vehicle">Auto de interes</label>
+            <input id="detail-vehicle" name="vehicle" type="text" required />
+
+            <label for="detail-date">Fecha aproximada</label>
+            <input id="detail-date" name="date" type="date" />
+
+            <button type="submit" class="btn-gold">Enviar Cita</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/15025768116"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp (502) 576-8116"
+      >WhatsApp</a
+    >
+
+    <footer class="site-footer">
+      <p>Empire Rey - Sales & Mechanic</p>
+      <p>3510 Dixie Hwy, Louisville, KY 40216</p>
+      <p><a href="tel:+15025768116">(502) 576-8116</a> | <a href="tel:+15027801096">(502) 780-1096</a></p>
+      <p class="socials"><a href="/autos/">Volver al inventario</a></p>
+    </footer>
+
+    <script type="module" src="./detail.js"></script>
+  </body>
+</html>

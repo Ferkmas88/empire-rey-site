@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autos | Empire Rey Auto Sales & Mechanic</title>
+    <meta
+      name="description"
+      content="Explora autos en Empire Rey Auto Sales & Mechanic. Deja tu email para updates y agenda una cita facil."
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="./autos.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="top-bar">
+        <p>3510 Dixie Hwy, Louisville, KY 40216</p>
+        <div class="top-phones">
+          <a href="tel:+15025768116">(502) 576-8116</a>
+          <a href="tel:+15027801096">(502) 780-1096</a>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a class="brand" href="/#inicio">
+          <img id="logoImage" alt="Empire Rey Logo" />
+          <span>Empire Rey</span>
+        </a>
+        <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">Menu</button>
+        <ul id="navLinks" class="nav-links">
+          <li><a href="/#inicio">Inicio</a></li>
+          <li><a href="/#about">Nosotros</a></li>
+          <li><a href="/#services">Servicios</a></li>
+          <li><a href="/autos/">Autos</a></li>
+          <li><a href="/#sold">Autos Vendidos</a></li>
+          <li><a href="/#reviews">Reviews</a></li>
+          <li><a href="/#contact">Contacto</a></li>
+          <li><a href="/#patrocinado">Patrocinado</a></li>
+        </ul>
+        <div class="nav-socials" aria-label="Redes sociales">
+          <a
+            class="social-pill facebook"
+            href="https://www.facebook.com/reyder.quevedo.2025"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Facebook</a
+          >
+          <a
+            class="social-pill instagram"
+            href="https://www.instagram.com/empire_rey_auto_sale?igsh=MTRndzlwYzlhZHprOQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <a
+            class="social-pill tiktok"
+            href="https://www.tiktok.com/@empire_rey_auto.sales"
+            target="_blank"
+            rel="noopener noreferrer"
+            >TikTok</a
+          >
+        </div>
+        <a class="btn-call" href="tel:+15025768116">Call Now</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="updates" class="section autos-section autos-section--highlight autos-section--secondary autos-section--top-banner">
+        <div class="section-inner updates-banner">
+          <div class="autos-copy-block updates-banner__copy">
+            <p class="eyebrow">Updates</p>
+            <h2>Unete para rifas y <span>NUEVOS CARROS</span></h2>
+            <p>Mantente al tanto de rifas, promociones y unidades nuevas.</p>
+          </div>
+          <form class="contact-form autos-form autos-form--compact updates-banner__form" action="https://formsubmit.co/rey1309ltu@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nuevo subscriber desde Autos - Empire Rey" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="source" value="autos_updates" />
+            <label class="sr-only" for="updates-name">Nombre</label>
+            <input id="updates-name" name="name" type="text" placeholder="Nombre" required />
+
+            <label class="sr-only" for="updates-email">Email</label>
+            <input id="updates-email" name="email" type="email" placeholder="Email" required />
+
+            <button type="submit" class="btn-gold">Recibir Updates</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="inventario" class="section autos-section">
+        <div class="section-inner">
+          <div class="autos-section__heading">
+            <div>
+              <p class="eyebrow">Tienda web</p>
+              <h2>Inventario listo para explorar</h2>
+            </div>
+            <p>Visual limpio, ficha del carro y cita rapida desde cualquier unidad.</p>
+          </div>
+          <div class="autos-filters" aria-label="Filtros de inventario">
+            <label class="sr-only" for="inventory-search">Buscar auto</label>
+            <input id="inventory-search" type="search" placeholder="Buscar por marca, modelo o ano" />
+
+            <label class="sr-only" for="inventory-body-filter">Tipo de auto</label>
+            <select id="inventory-body-filter">
+              <option value="all">Todos</option>
+              <option value="sedan">Sedan</option>
+              <option value="suv">SUV</option>
+              <option value="pickup">Pickup</option>
+              <option value="compacto">Compacto</option>
+            </select>
+
+            <label class="sr-only" for="inventory-sort">Ordenar</label>
+            <select id="inventory-sort">
+              <option value="newest">Mas nuevos</option>
+              <option value="price-asc">Menor precio</option>
+              <option value="price-desc">Mayor precio</option>
+              <option value="mileage-asc">Menor millaje</option>
+            </select>
+          </div>
+          <div class="autos-grid" id="autosGrid"></div>
+        </div>
+      </section>
+
+      <section id="cita" class="section autos-section">
+        <div class="section-inner autos-leads-stack">
+          <div class="autos-copy-block">
+            <p class="eyebrow">Citas</p>
+            <h2>Agenda tu cita en menos de un minuto</h2>
+            <p>
+              Si vienes desde una card o desde la ficha del carro, el auto de interes se llena automaticamente.
+              Tu solo dejas datos basicos y te confirmamos por llamada o WhatsApp.
+            </p>
+            <div class="autos-steps" aria-label="Como funciona la cita">
+              <span>1. Elige una opcion</span>
+              <span>2. Se llena el auto automaticamente</span>
+              <span>3. Deja nombre, telefono y fecha</span>
+            </div>
+          </div>
+          <form class="contact-form autos-form" action="https://formsubmit.co/rey1309ltu@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nueva cita desde Autos - Empire Rey" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="source" value="autos_appointment" />
+            <input id="appointment-car-id" name="car_id" type="hidden" />
+            <label for="appointment-name">Nombre</label>
+            <input id="appointment-name" name="name" type="text" required />
+
+            <label for="appointment-phone">Telefono</label>
+            <input id="appointment-phone" name="phone" type="tel" />
+
+            <label for="appointment-email">Email</label>
+            <input id="appointment-email" name="email" type="email" />
+
+            <label for="appointment-vehicle">Auto de interes</label>
+            <input id="appointment-vehicle" name="vehicle" type="text" placeholder="Sedan disponible" />
+
+            <label for="appointment-date">Fecha aproximada</label>
+            <input id="appointment-date" name="date" type="date" />
+
+            <button type="submit" class="btn-gold">Enviar Cita</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/15025768116"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp (502) 576-8116"
+      >WhatsApp</a
+    >
+
+    <footer class="site-footer">
+      <p>Empire Rey - Sales & Mechanic</p>
+      <p>3510 Dixie Hwy, Louisville, KY 40216</p>
+      <p><a href="tel:+15025768116">(502) 576-8116</a> | <a href="tel:+15027801096">(502) 780-1096</a></p>
+      <p class="socials"><a href="/autos/">Ver inventario</a></p>
+    </footer>
+
+    <script type="module" src="./autos.js"></script>
+  </body>
+</html>

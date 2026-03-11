@@ -1,0 +1,36 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/autos",
+      "destination": "/autos/index.html"
+    },
+    {
+      "source": "/autos/detalle",
+      "destination": "/autos/detalle/index.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/cars",
+      "destination": "/admin/cars/index.html"
+    },
+    {
+      "source": "/admin/leads",
+      "destination": "/admin/leads/index.html"
+    },
+    {
+      "source": "/admin/appointments",
+      "destination": "/admin/appointments/index.html"
+    },
+    {
+      "source": "/admin/subscribers",
+      "destination": "/admin/subscribers/index.html"
+    }
+  ]
+}

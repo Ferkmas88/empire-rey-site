@@ -1,0 +1,269 @@
+{
+  "meta": {
+    "nextCarId": 6,
+    "nextLeadId": 5,
+    "nextAppointmentId": 4,
+    "nextSubscriberId": 5
+  },
+  "cars": [
+    {
+      "id": 1,
+      "slug": "sedan-premium-2019",
+      "title": "Toyota Camry SE 2019",
+      "badge": "Nuevo esta semana",
+      "price": "$13,900",
+      "payment": "$85/semana",
+      "weekly_payment": "$85/semana",
+      "mileage": "62,000 mi",
+      "year": "2019",
+      "make": "Toyota",
+      "model": "Camry SE",
+      "body": "Sedan",
+      "transmission": "Automatica",
+      "fuel": "Gasolina",
+      "color": "Gris metalico",
+      "drivetrain": "FWD",
+      "stock": "Disponible ahora",
+      "summary": "Sedan limpio, comodo y listo para quien busca pagos manejables.",
+      "description": "Toyota Camry SE 2019 con manejo suave, buen espacio interior y una presencia elegante para uso diario. Buena opcion para trabajo, familia o primer carro con financiamiento flexible.",
+      "image": "/sold/612427142_874332448909630_889268608058161214_n.jpg",
+      "gallery": [
+        "/sold/612427142_874332448909630_889268608058161214_n.jpg",
+        "/Portada/WhatsApp Image 2026-02-27 at 9.34.29 PM.jpeg",
+        "/rey/WhatsApp Image 2026-02-27 at 9.12.30 PM.jpeg"
+      ],
+      "status": "available",
+      "featured": true,
+      "created_at": "2026-03-10T10:00:00.000Z",
+      "updated_at": "2026-03-10T10:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "slug": "suv-familiar-2020",
+      "title": "Nissan Rogue SV 2020",
+      "badge": "Familiar",
+      "price": "$18,900",
+      "payment": "$109/semana",
+      "weekly_payment": "$109/semana",
+      "mileage": "54,300 mi",
+      "year": "2020",
+      "make": "Nissan",
+      "model": "Rogue SV",
+      "body": "SUV",
+      "transmission": "Automatica",
+      "fuel": "Gasolina",
+      "color": "Negro",
+      "drivetrain": "AWD",
+      "stock": "Lista para prueba",
+      "summary": "SUV moderna con espacio, posicion alta y manejo seguro para familia.",
+      "description": "Nissan Rogue SV 2020 pensada para clientes que necesitan espacio, comodidad y una posicion de manejo mas alta. Ideal para familia, viajes y uso mixto entre ciudad y carretera.",
+      "image": "/sold/618219692_881587674850774_581404140251442906_n.jpg",
+      "gallery": [
+        "/sold/618219692_881587674850774_581404140251442906_n.jpg",
+        "/Portada/588721866_839012729108269_4655180508387803109_n.jpg",
+        "/rey/1ge 2026-02-27 at 9.12.30 PM.jpeg"
+      ],
+      "status": "available",
+      "featured": false,
+      "created_at": "2026-03-10T10:05:00.000Z",
+      "updated_at": "2026-03-10T10:05:00.000Z"
+    },
+    {
+      "id": 3,
+      "slug": "pickup-trabajo-2018",
+      "title": "Ford F-150 XLT 2018",
+      "badge": "Trabajo",
+      "price": "$21,500",
+      "payment": "$126/semana",
+      "weekly_payment": "$126/semana",
+      "mileage": "78,100 mi",
+      "year": "2018",
+      "make": "Ford",
+      "model": "F-150 XLT",
+      "body": "Pickup",
+      "transmission": "Automatica",
+      "fuel": "Gasolina",
+      "color": "Blanco",
+      "drivetrain": "4x4",
+      "stock": "Consulta disponibilidad",
+      "summary": "Pickup fuerte para trabajo, herramientas y clientes que necesitan utilidad real.",
+      "description": "Ford F-150 XLT 2018 con capacidad para trabajo duro, buena presencia y cabina comoda. Opcion fuerte para negocio, herramientas, remolque ligero y uso diario.",
+      "image": "/sold/610624059_871157672560441_546700141234205049_n.jpg",
+      "gallery": [
+        "/sold/610624059_871157672560441_546700141234205049_n.jpg",
+        "/Portada/WhatsApp Image 2026-02-27 at 9.34.29 PM.jpeg",
+        "/rey/WhatsApp Image 2026-02-27 at 9.12.30 PM.jpeg"
+      ],
+      "status": "available",
+      "featured": false,
+      "created_at": "2026-03-10T10:10:00.000Z",
+      "updated_at": "2026-03-10T10:10:00.000Z"
+    },
+    {
+      "id": 4,
+      "slug": "compacto-economico-2017",
+      "title": "Honda Civic LX 2017",
+      "badge": "Economico",
+      "price": "$10,900",
+      "payment": "$72/semana",
+      "weekly_payment": "$72/semana",
+      "mileage": "69,800 mi",
+      "year": "2017",
+      "make": "Honda",
+      "model": "Civic LX",
+      "body": "Compacto",
+      "transmission": "Automatica",
+      "fuel": "Gasolina",
+      "color": "Azul oscuro",
+      "drivetrain": "FWD",
+      "stock": "Ideal primer carro",
+      "summary": "Compacto confiable y economico para commuting diario y primer carro.",
+      "description": "Honda Civic LX 2017 con buena reputacion, economia de combustible y mantenimiento accesible. Perfecto para clientes que quieren algo practico, comodo y facil de pagar.",
+      "image": "/sold/605127263_868224342853774_1597893891073389201_n.jpg",
+      "gallery": [
+        "/sold/605127263_868224342853774_1597893891073389201_n.jpg",
+        "/Portada/588721866_839012729108269_4655180508387803109_n.jpg",
+        "/rey/1ge 2026-02-27 at 9.12.30 PM.jpeg"
+      ],
+      "status": "available",
+      "featured": false,
+      "created_at": "2026-03-10T10:15:00.000Z",
+      "updated_at": "2026-03-10T10:15:00.000Z"
+    },
+    {
+      "id": 5,
+      "slug": "suv-compacta-2021",
+      "title": "Chevrolet Equinox LS 2021",
+      "badge": "Reciente",
+      "price": "$19,750",
+      "payment": "$114/semana",
+      "weekly_payment": "$114/semana",
+      "mileage": "48,900 mi",
+      "year": "2021",
+      "make": "Chevrolet",
+      "model": "Equinox LS",
+      "body": "SUV",
+      "transmission": "Automatica",
+      "fuel": "Gasolina",
+      "color": "Rojo vino",
+      "drivetrain": "FWD",
+      "stock": "Lista para mostrar",
+      "summary": "SUV compacta con look moderno, buena altura y espacio versatil.",
+      "description": "Chevrolet Equinox LS 2021 con estilo moderno, cabina comoda y espacio util para familia o trabajo ligero. Excelente opcion para quien quiere una SUV reciente con pagos semanales accesibles.",
+      "image": "/Portada/588721866_839012729108269_4655180508387803109_n.jpg",
+      "gallery": [
+        "/Portada/588721866_839012729108269_4655180508387803109_n.jpg",
+        "/Portada/WhatsApp Image 2026-02-27 at 9.34.29 PM.jpeg",
+        "/rey/WhatsApp Image 2026-02-27 at 9.12.30 PM.jpeg"
+      ],
+      "status": "available",
+      "featured": false,
+      "created_at": "2026-03-10T10:20:00.000Z",
+      "updated_at": "2026-03-10T10:20:00.000Z"
+    }
+  ],
+  "leads": [
+    {
+      "id": 1,
+      "name": "Jose Martinez",
+      "phone": "7045550110",
+      "email": "jose.martinez@example.com",
+      "car_interest": "Toyota Camry SE 2019",
+      "car_id": 1,
+      "source": "autos",
+      "created_at": "2026-03-10T14:10:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Maria Lopez",
+      "phone": "9805550199",
+      "email": "maria.lopez@example.com",
+      "car_interest": "Nissan Rogue SV 2020",
+      "car_id": 2,
+      "source": "auto_detail",
+      "created_at": "2026-03-10T15:25:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Carlos Rivera",
+      "phone": "7045550148",
+      "email": "",
+      "car_interest": "Honda Civic LX 2017",
+      "car_id": 4,
+      "source": "autos",
+      "created_at": "2026-03-10T16:05:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "Ana Torres",
+      "phone": "",
+      "email": "ana.torres@example.com",
+      "car_interest": "Chevrolet Equinox LS 2021",
+      "car_id": 5,
+      "source": "home",
+      "created_at": "2026-03-10T16:40:00.000Z"
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "lead_id": 1,
+      "car_id": 1,
+      "preferred_date": "2026-03-12",
+      "source": "autos",
+      "status": "pending",
+      "created_at": "2026-03-10T14:10:00.000Z",
+      "updated_at": "2026-03-10T14:10:00.000Z"
+    },
+    {
+      "id": 2,
+      "lead_id": 2,
+      "car_id": 2,
+      "preferred_date": "2026-03-13",
+      "source": "auto_detail",
+      "status": "confirmed",
+      "created_at": "2026-03-10T15:25:00.000Z",
+      "updated_at": "2026-03-10T15:40:00.000Z"
+    },
+    {
+      "id": 3,
+      "lead_id": 3,
+      "car_id": 4,
+      "preferred_date": "2026-03-15",
+      "source": "autos",
+      "status": "done",
+      "created_at": "2026-03-10T16:05:00.000Z",
+      "updated_at": "2026-03-10T17:30:00.000Z"
+    }
+  ],
+  "subscribers": [
+    {
+      "id": 1,
+      "name": "Laura Gomez",
+      "email": "laura.gomez@example.com",
+      "source": "home_updates",
+      "created_at": "2026-03-10T13:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Pedro Sanchez",
+      "email": "pedro.sanchez@example.com",
+      "source": "autos_updates",
+      "created_at": "2026-03-10T13:25:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Diana Flores",
+      "email": "diana.flores@example.com",
+      "source": "home_updates",
+      "created_at": "2026-03-10T14:45:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "Miguel Herrera",
+      "email": "miguel.herrera@example.com",
+      "source": "autos_updates",
+      "created_at": "2026-03-10T15:55:00.000Z"
+    }
+  ]
+}
