@@ -271,10 +271,10 @@ export async function getSupabaseHealth() {
   const supabase = getSupabaseClient()
 
   const [cars, leads, appointments, subscribers] = await Promise.all([
-    supabase.from('cars').select('*', { count: 'exact', head: true }),
-    supabase.from('leads').select('*', { count: 'exact', head: true }),
-    supabase.from('appointments').select('*', { count: 'exact', head: true }),
-    supabase.from('subscribers').select('*', { count: 'exact', head: true }),
+    supabase.from('cars').select('id', { count: 'exact' }).limit(1),
+    supabase.from('leads').select('id', { count: 'exact' }).limit(1),
+    supabase.from('appointments').select('id', { count: 'exact' }).limit(1),
+    supabase.from('subscribers').select('id', { count: 'exact' }).limit(1),
   ])
 
   const errors = [cars.error, leads.error, appointments.error, subscribers.error].filter(Boolean)
