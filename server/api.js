@@ -4,6 +4,20 @@ import { copyFile, mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/p
 import { dirname, extname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { getAdminPassword, getSupabaseUrl } from './env.js'
+import {
+  createAppointmentSupabase,
+  createSubscriberSupabase,
+  getSupabaseHealth,
+  isSupabaseEnabled,
+  listAppointmentsSupabase,
+  listCarsSupabase,
+  listLeadsSupabase,
+  listSubscribersSupabase,
+  updateAppointmentStatusSupabase,
+  updateCarStatusSupabase,
+  uploadCarImagesSupabase,
+  upsertCarSupabase,
+} from './supabase-store.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const dataDir = resolve(__dirname, 'data')
@@ -247,6 +261,12 @@ function withAppointmentRelations(db) {
 }
 
 async function handleGetCars(response) {
+  if (isSupabaseEnabled()) {
+    const cars = await listCarsSupabase()
+    sendJson(response, 200, cars)
+    return
+  }
+
   const db = await readDatabase()
   sendJson(response, 200, sortByCreatedDesc(db.cars))
 }
@@ -257,6 +277,12 @@ async function handleUploadCarImages(request, response) {
 
   if (!files.length) {
     sendJson(response, 400, { error: 'Debes enviar al menos una imagen.' })
+    return
+  }
+
+  if (isSupabaseEnabled()) {
+    const result = await uploadCarImagesSupabase(files)
+    sendJson(response, 201, result)
     return
   }
 
@@ -298,6 +324,13 @@ async function handleUploadCarImages(request, response) {
 
 async function handleUpsertCar(request, response) {
   const payload = await readBody(request)
+
+  if (isSupabaseEnabled()) {
+    const result = await upsertCarSupabase(payload)
+    sendJson(response, payload.id ? 200 : 201, result)
+    return
+  }
+
   const db = await readDatabase()
   const current = db.cars.find((car) => car.id === Number(payload.id)) || null
   const normalized = normalizeCarPayload(payload, current, db.meta)
@@ -314,6 +347,13 @@ async function handleUpsertCar(request, response) {
 
 async function handleCarStatus(request, response, id) {
   const payload = await readBody(request)
+
+  if (isSupabaseEnabled()) {
+    const result = await updateCarStatusSupabase(id, payload.status)
+    sendJson(response, 200, result)
+    return
+  }
+
   if (!carStatuses.has(payload.status)) {
     sendJson(response, 400, { error: 'Estado de carro invalido.' })
     return
@@ -334,12 +374,25 @@ async function handleCarStatus(request, response, id) {
 }
 
 async function handleGetLeads(response) {
+  if (isSupabaseEnabled()) {
+    const leads = await listLeadsSupabase()
+    sendJson(response, 200, leads)
+    return
+  }
+
   const db = await readDatabase()
   sendJson(response, 200, sortByCreatedDesc(db.leads))
 }
 
 async function handleCreateAppointment(request, response) {
   const payload = await readBody(request)
+
+  if (isSupabaseEnabled()) {
+    const result = await createAppointmentSupabase(payload)
+    sendJson(response, 201, result)
+    return
+  }
+
   const name = normalizeText(payload.name)
   const phone = normalizeText(payload.phone)
   const email = normalizeText(payload.email)
@@ -411,12 +464,25 @@ async function handleCreateAppointment(request, response) {
 }
 
 async function handleGetAppointments(response) {
+  if (isSupabaseEnabled()) {
+    const appointments = await listAppointmentsSupabase()
+    sendJson(response, 200, appointments)
+    return
+  }
+
   const db = await readDatabase()
   sendJson(response, 200, withAppointmentRelations(db))
 }
 
 async function handleAppointmentStatus(request, response, id) {
   const payload = await readBody(request)
+
+  if (isSupabaseEnabled()) {
+    const result = await updateAppointmentStatusSupabase(id, payload.status)
+    sendJson(response, 200, result)
+    return
+  }
+
   if (!appointmentStatuses.has(payload.status)) {
     sendJson(response, 400, { error: 'Estado de cita invalido.' })
     return
@@ -437,12 +503,25 @@ async function handleAppointmentStatus(request, response, id) {
 }
 
 async function handleGetSubscribers(response) {
+  if (isSupabaseEnabled()) {
+    const subscribers = await listSubscribersSupabase()
+    sendJson(response, 200, subscribers)
+    return
+  }
+
   const db = await readDatabase()
   sendJson(response, 200, sortByCreatedDesc(db.subscribers))
 }
 
 async function handleCreateSubscriber(request, response) {
   const payload = await readBody(request)
+
+  if (isSupabaseEnabled()) {
+    const result = await createSubscriberSupabase(payload)
+    sendJson(response, result.duplicate ? 200 : 201, result)
+    return
+  }
+
   const name = normalizeText(payload.name)
   const email = normalizeText(payload.email).toLowerCase()
   const source = normalizeText(payload.source) || 'site'
@@ -497,6 +576,12 @@ export async function handleApiRequest(request, response) {
     const pathname = url.pathname
 
     if (request.method === 'GET' && pathname === '/api/health') {
+      if (isSupabaseEnabled()) {
+        const payload = await getSupabaseHealth()
+        sendJson(response, 200, payload)
+        return true
+      }
+
       const db = await readDatabase()
       sendJson(response, 200, {
         ok: true,
