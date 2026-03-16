@@ -9,8 +9,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout
@@ -30,15 +28,14 @@ jobs:
         env:
           VITE_API_BASE: https://empire-rey-site.onrender.com
 
-      - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy via SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: 145.223.77.154
-          username: ${{ secrets.HOSTINGER_FTP_USER }}
-          password: ${{ secrets.HOSTINGER_FTP_PASS }}
-          port: 21
-          protocol: ftps
-          security: loose
-          timeout: 120000
-          local-dir: ./dist/
-          server-dir: /public_html/
+          host: 145.223.77.154
+          username: u923792465
+          password: ${{ secrets.HOSTINGER_SSH_PASS }}
+          port: 65002
+          source: "dist/*"
+          target: /home/u923792465/domains/empireautorey.com/public_html
+          strip_components: 1
+          rm: true
