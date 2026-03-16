@@ -26,23 +26,15 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: Deploy via SSH + rsync
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Upload dist to Hostinger (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: 145.223.77.154
+          server: 145.223.77.154
           username: ${{ secrets.HOSTINGER_FTP_USER }}
           password: ${{ secrets.HOSTINGER_FTP_PASS }}
-          port: 22
-          script: echo "SSH OK" && ls ~
-
-      - name: Upload via SCP
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: 145.223.77.154
-          username: ${{ secrets.HOSTINGER_FTP_USER }}
-          password: ${{ secrets.HOSTINGER_FTP_PASS }}
-          port: 22
-          source: ./dist/*
-          target: ~/public_html
-          strip_components: 1
-          overwrite: true
+          port: 21
+          protocol: ftps
+          security: loose
+          timeout: 120000
+          local-dir: ./dist/
+          server-dir: /public_html/
