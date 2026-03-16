@@ -27,6 +27,8 @@ jobs:
 
       - name: Build app
         run: npm run build
+        env:
+          VITE_API_BASE: https://empire-rey-site.onrender.com
 
       - name: Push dist to deploy branch
         uses: peaceiris/actions-gh-pages@v4

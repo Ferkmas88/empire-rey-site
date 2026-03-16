@@ -1,11 +1,13 @@
 import { cars as localCars } from '../autos/cars.js'
 import { getAdminHeaders } from './admin-auth.js'
 
+const API_BASE = import.meta.env.VITE_API_BASE || ''
+
 async function requestJson(path, options = {}, fallback) {
   const { requiresAdmin = false, headers: customHeaders = {}, ...requestOptions } = options
 
   try {
-    const response = await fetch(path, {
+    const response = await fetch(API_BASE + path, {
       headers: {
         'Content-Type': 'application/json',
         ...(requiresAdmin ? getAdminHeaders() : {}),
