@@ -8,7 +8,7 @@ import { createClient } from '@supabase/supabase-js'
 const RESEND_API_KEY   = 'REDACTED_RESEND_KEY'
 const SUPABASE_URL     = 'https://wqblkchdviysetlkjago.supabase.co'
 const SUPABASE_KEY     = 'REDACTED_SUPABASE_SERVICE_KEY'
-const FROM_EMAIL       = 'Empire Rey <noreply@empireautorey.com>'
+const FROM_EMAIL       = 'Empire Rey <noreply@digitalamwebsites.com>'
 const SITE_URL         = 'https://empireautorey.com'
 
 const resend   = new Resend(RESEND_API_KEY)
