@@ -26,15 +26,10 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: Upload dist to Hostinger (FTP)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Push dist to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          server: 145.223.77.154
-          username: ${{ secrets.HOSTINGER_FTP_USER }}
-          password: ${{ secrets.HOSTINGER_FTP_PASS }}
-          port: 21
-          protocol: ftps
-          security: loose
-          timeout: 120000
-          local-dir: ./dist/
-          server-dir: /public_html/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: deploy
+          publish_dir: ./dist
+          force_orphan: true
