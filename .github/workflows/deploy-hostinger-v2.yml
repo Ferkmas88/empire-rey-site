@@ -26,14 +26,14 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: Upload dist to Hostinger (FTP)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Upload dist via SFTP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: 145.223.77.154
+          host: 145.223.77.154
           username: ${{ secrets.HOSTINGER_FTP_USER }}
           password: ${{ secrets.HOSTINGER_FTP_PASS }}
-          port: 21
-          protocol: ftp
-          timeout: 120000
-          local-dir: ./dist/
-          server-dir: /public_html/
+          port: 22
+          source: ./dist/*
+          target: /home/u923792465/domains/empireautorey.com/public_html
+          strip_components: 1
+          overwrite: true
