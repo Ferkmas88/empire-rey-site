@@ -326,6 +326,19 @@ async function renderAppointmentsPage() {
       { label: 'Confirmadas', value: String(confirmedCount) },
       { label: 'Completadas', value: String(doneCount) },
     ])}
+    <section class="admin-card" style="margin-bottom:1.5rem;">
+      <p style="font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:.75rem;font-weight:700;">Ubicacion del negocio</p>
+      <p style="margin-bottom:.75rem;font-size:.875rem;color:var(--text-muted);">3510 Dixie Hwy, Louisville, KY 40216</p>
+      <iframe
+        title="Mapa Empire Rey"
+        src="https://www.google.com/maps?q=3510%20Dixie%20Hwy,%20Louisville,%20KY%2040216&output=embed"
+        width="100%"
+        height="280"
+        style="border:0;border-radius:8px;display:block;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
     <section class="admin-card">
       <div class="admin-toolbar">
         <input id="appointmentsSearch" type="search" placeholder="Buscar por nombre, telefono, email o carro" />

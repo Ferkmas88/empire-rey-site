@@ -103,7 +103,7 @@ if (arrivalsTrack) {
           <span>${escapeHtml(car.transmission)}</span>
         </div>
         <div class="inventory-card__actions">
-          <a class="btn-gold" href="/autos/detalle/?car=${encodeURIComponent(car.slug)}">Ver Detalles</a>
+          <a class="btn-gold" href="/autos/">Tienda</a>
           <a class="inventory-card__ghost" href="/autos/detalle/?car=${encodeURIComponent(car.slug)}#cita">Agendar Cita</a>
         </div>
       </div>
@@ -162,15 +162,24 @@ const closeOfferPopup = () => {
   offerPopup?.classList.remove('active')
   offerPopup?.setAttribute('aria-hidden', 'true')
 }
+const POPUP_KEY = 'empirerey_offer_seen'
+const POPUP_COOLDOWN_MS = 24 * 60 * 60 * 1000 // 24 horas
+
 const showOfferPopup = () => {
   if (!offerPopup) return
   offerPopup.classList.add('active')
   offerPopup.setAttribute('aria-hidden', 'false')
+  localStorage.setItem(POPUP_KEY, Date.now().toString())
 }
 
-if (offerPopup) {
+const shouldShowPopup = () => {
+  const last = localStorage.getItem(POPUP_KEY)
+  if (!last) return true
+  return Date.now() - parseInt(last, 10) > POPUP_COOLDOWN_MS
+}
+
+if (offerPopup && shouldShowPopup()) {
   window.setTimeout(showOfferPopup, 1200)
-  window.setInterval(showOfferPopup, 60000)
 }
 
 offerBackdrop?.addEventListener('click', closeOfferPopup)

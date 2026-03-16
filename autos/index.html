@@ -13,6 +13,7 @@
     <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="./autos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
   </head>
   <body>
     <header class="site-header">
@@ -31,13 +32,11 @@
         <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">Menu</button>
         <ul id="navLinks" class="nav-links">
           <li><a href="/#inicio">Inicio</a></li>
-          <li><a href="/#about">Nosotros</a></li>
-          <li><a href="/#services">Servicios</a></li>
-          <li><a href="/autos/">Autos</a></li>
           <li><a href="/#sold">Autos Vendidos</a></li>
           <li><a href="/#reviews">Reviews</a></li>
           <li><a href="/#contact">Contacto</a></li>
           <li><a href="/#patrocinado">Patrocinado</a></li>
+          <li class="nav-tienda"><a href="/autos/">Tienda</a></li>
         </ul>
         <div class="nav-socials" aria-label="Redes sociales">
           <a
@@ -62,7 +61,7 @@
             >TikTok</a
           >
         </div>
-        <a class="btn-call" href="tel:+15025768116">Call Now</a>
+        <a class="btn-call" href="tel:+15025768116">Llamar</a>
       </nav>
     </header>
 
@@ -160,6 +159,10 @@
             <label for="appointment-date">Fecha aproximada</label>
             <input id="appointment-date" name="date" type="date" />
 
+            <label class="subscribe-check">
+              <input type="checkbox" name="subscribe" value="1" />
+              Suscribirme a la lista de novedades y promociones por email
+            </label>
             <button type="submit" class="btn-gold">Enviar Cita</button>
           </form>
         </div>
@@ -183,5 +186,16 @@
     </footer>
 
     <script type="module" src="./autos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        flatpickr('#appointment-date', {
+          minDate: 'today',
+          dateFormat: 'Y-m-d',
+          locale: { firstDayOfWeek: 1 },
+          disableMobile: false,
+        })
+      })
+    </script>
   </body>
 </html>

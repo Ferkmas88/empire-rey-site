@@ -105,9 +105,14 @@ export function bindAppointmentForm(form, source) {
       source,
     }
 
+    const wantsSubscribe = formData.get('subscribe') === '1'
+
     try {
       setMessage(form, 'loading', 'Enviando...')
       await createAppointment(payload)
+      if (wantsSubscribe && payload.email) {
+        try { await createSubscriber({ name: payload.name, email: payload.email, source: `${source}_cita` }) } catch (_) {}
+      }
       const preservedVehicle = payload.car_interest
       const preservedCarId = carIdValue
       form.reset()

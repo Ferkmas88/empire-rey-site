@@ -142,6 +142,22 @@ a {
   transform: scaleX(1);
 }
 
+.nav-tienda a {
+  background: var(--gold);
+  color: #000 !important;
+  padding: 6px 18px !important;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.nav-tienda a:hover {
+  background: #e6b800;
+}
+
+.nav-tienda a::after {
+  display: none !important;
+}
+
 .menu-toggle {
   border: 1px solid var(--line);
   background: rgba(13, 13, 13, 0.95);
@@ -384,6 +400,24 @@ h1 {
   transform: translateY(-2px);
   filter: brightness(1.06);
   box-shadow: 0 0 18px rgba(212, 175, 55, 0.45), 0 0 34px rgba(212, 175, 55, 0.3);
+}
+
+.subscribe-check {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  margin-top: .25rem;
+}
+
+.subscribe-check input[type="checkbox"] {
+  accent-color: var(--gold);
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .section {

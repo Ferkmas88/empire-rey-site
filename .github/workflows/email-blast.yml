@@ -1,0 +1,27 @@
+name: Email Blast Semanal
+
+on:
+  schedule:
+    - cron: '0 14 * * 1'  # Cada lunes 9am Louisville (UTC-5)
+  workflow_dispatch:        # También permite correrlo manualmente desde GitHub
+
+jobs:
+  send-emails:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias
+        working-directory: email-blast
+        run: npm install
+
+      - name: Enviar emails
+        working-directory: email-blast
+        run: node send.js

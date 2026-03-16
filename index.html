@@ -111,13 +111,11 @@
         <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">Menu</button>
         <ul id="navLinks" class="nav-links">
           <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#about">Nosotros</a></li>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="/autos/">Autos</a></li>
           <li><a href="#sold">Autos Vendidos</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contacto</a></li>
           <li><a href="#patrocinado">Patrocinado</a></li>
+          <li class="nav-tienda"><a href="/autos/">Tienda</a></li>
         </ul>
         <div class="nav-socials" aria-label="Redes sociales">
           <a
@@ -142,7 +140,7 @@
             >TikTok</a
           >
         </div>
-        <a class="btn-call" href="tel:+15025768116">Call Now</a>
+        <a class="btn-call" href="tel:+15025768116">Llamar</a>
       </nav>
     </header>
 
@@ -182,15 +180,6 @@
             <div>
               <p class="eyebrow">Recien llegados</p>
               <h2>Carros nuevos en la tienda web</h2>
-            </div>
-            <div class="inventory-showcase__actions">
-              <button id="homeArrivalsPrev" class="carousel-btn" type="button" aria-label="Ver carros anteriores">
-                Anterior
-              </button>
-              <button id="homeArrivalsNext" class="carousel-btn" type="button" aria-label="Ver mas carros">
-                Siguiente
-              </button>
-              <a class="btn-gold" href="/autos/">Ir al inventario</a>
             </div>
           </div>
           <div id="homeArrivalsTrack" class="inventory-carousel" aria-label="Carros nuevos"></div>
@@ -237,7 +226,7 @@
         </div>
       </section>
 
-      <section id="about" class="section about reveal">
+      <section id="about" class="section about reveal" style="display:none">
         <div class="section-inner">
           <h2>Nosotros</h2>
           <p>We help everyone get approved. Easy financing. Fast process.</p>
@@ -292,7 +281,7 @@
         </div>
       </section>
 
-      <section id="services" class="section services reveal">
+      <section id="services" class="section services reveal" style="display:none">
         <div class="section-inner">
           <h2>Servicios</h2>
           <div class="service-grid">
@@ -360,7 +349,7 @@
           </div>
           <aside class="contact-card" aria-label="Ir a la pagina de Autos">
             <p class="contact-card__eyebrow">Autos y citas</p>
-            <h3>Una experiencia simple para captar leads</h3>
+            <h3>Una experiencia simple para agendar tu cita</h3>
             <p>
               Entra a la pagina de Autos, mira el inventario, toca <strong>Ver Detalles</strong> y luego
               <strong>Agendar Cita</strong>. El formulario ya llega con el auto de interes.
@@ -372,8 +361,7 @@
               <li>4. Confirmaci&oacute;n r&aacute;pida por llamada o mensaje.</li>
             </ul>
             <div class="contact-card__actions">
-              <a class="btn-gold" href="/autos/">Ir a Autos</a>
-              <a class="contact-card__ghost" href="/autos/detalle/?car=sedan-premium-2019#cita">Probar flujo</a>
+              <a class="btn-gold" href="/autos/">Ir a Tienda</a>
             </div>
           </aside>
         </div>
