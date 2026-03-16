@@ -1,0 +1,16 @@
+{
+  "name": "Empire Rey Auto Sales & Mechanic",
+  "short_name": "Empire Rey",
+  "description": "Carros usados, financiamiento fácil y mecánica en Louisville, Kentucky.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
