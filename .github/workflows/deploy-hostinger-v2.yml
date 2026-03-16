@@ -33,7 +33,7 @@ jobs:
         with:
           host: 145.223.77.154
           username: u923792465
-          password: ${{ secrets.HOSTINGER_SSH_PASS }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: 65002
           source: "dist/*"
           target: /home/u923792465/domains/empireautorey.com/public_html
