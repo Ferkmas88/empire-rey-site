@@ -7,7 +7,10 @@ async function requestJson(path, options = {}, fallback) {
   const { requiresAdmin = false, headers: customHeaders = {}, ...requestOptions } = options
 
   try {
+    const controller = new AbortController()
+    const timer = setTimeout(() => controller.abort(), 2000)
     const response = await fetch(API_BASE + path, {
+      signal: controller.signal,
       headers: {
         'Content-Type': 'application/json',
         ...(requiresAdmin ? getAdminHeaders() : {}),
@@ -15,6 +18,7 @@ async function requestJson(path, options = {}, fallback) {
       },
       ...requestOptions,
     })
+    clearTimeout(timer)
 
     const contentType = response.headers.get('content-type') || ''
     const payload = contentType.includes('application/json') ? await response.json() : null
