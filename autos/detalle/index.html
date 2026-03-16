@@ -65,6 +65,16 @@
         <a class="btn-call" href="tel:+15025768116">Llamar</a>
       </nav>
     </header>
+    <script>
+      (function(){
+        const path = location.pathname.replace(/\/$/, '') || '/'
+        document.querySelectorAll('.nav-links a').forEach(a => {
+          const href = a.getAttribute('href') || ''
+          const hPath = href.split('#')[0].replace(/\/$/, '') || '/'
+          if (hPath && hPath !== '/' && path.startsWith(hPath)) a.classList.add('nav-active')
+        })
+      })()
+    </script>
 
     <main class="detail-page">
       <section class="section detail-shell">

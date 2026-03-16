@@ -158,6 +158,21 @@ a {
   display: none !important;
 }
 
+.nav-links a.nav-active {
+  color: var(--gold) !important;
+}
+
+.nav-links a.nav-active::after {
+  transform: scaleX(1) !important;
+}
+
+.nav-tienda a.nav-active {
+  background: transparent !important;
+  color: var(--gold) !important;
+  border: 2px solid var(--gold);
+  padding: 4px 18px !important;
+}
+
 .menu-toggle {
   border: 1px solid var(--line);
   background: rgba(13, 13, 13, 0.95);
