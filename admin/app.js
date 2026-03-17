@@ -1,4 +1,5 @@
 import {
+  deleteCar,
   exportSubscribersCsv,
   getDashboardSummary,
   listAppointments,
@@ -759,6 +760,7 @@ async function renderCarsPage() {
                     <button class="admin-btn" type="button" data-status-car="${car.id}" data-status-value="hidden">Ocultar</button>
                     <button class="admin-btn" type="button" data-status-car="${car.id}" data-status-value="available">Publicar</button>
                     <button class="admin-btn" type="button" data-status-car="${car.id}" data-status-value="sold">Vendido</button>
+                    <button class="admin-btn admin-btn--danger" type="button" data-delete-car="${car.id}">Eliminar</button>
                   </div>
                 </td>
               </tr>
@@ -847,6 +849,17 @@ async function renderCarsPage() {
   tableBody.addEventListener('click', async (event) => {
     const editButton = event.target.closest('[data-edit-car]')
     const statusButton = event.target.closest('[data-status-car]')
+    const deleteButton = event.target.closest('[data-delete-car]')
+
+    if (deleteButton) {
+      const car = cars.find((item) => String(item.id) === String(deleteButton.dataset.deleteCar))
+      if (!car) return
+      if (!confirm(`¿Eliminar "${car.title}"? Esta accion no se puede deshacer.`)) return
+      await deleteCar(car.id)
+      cars = await listCarsAdmin()
+      filterCars()
+      setNotice('Carro eliminado.')
+    }
 
     if (editButton) {
       const car = cars.find((item) => String(item.id) === String(editButton.dataset.editCar))

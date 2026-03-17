@@ -95,6 +95,13 @@ export async function updateCarStatus(id, status) {
   })
 }
 
+export async function deleteCar(id) {
+  return requestJson(`/api/cars/${id}`, {
+    method: 'DELETE',
+    requiresAdmin: true,
+  })
+}
+
 export async function updateAppointmentStatus(id, status) {
   return requestJson(`/api/appointments/${id}/status`, {
     method: 'PATCH',

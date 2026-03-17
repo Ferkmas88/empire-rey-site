@@ -78,7 +78,7 @@ function sendJson(response, statusCode, payload) {
   response.statusCode = statusCode
   response.setHeader('Access-Control-Allow-Origin', '*')
   response.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Admin-Key')
-  response.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,OPTIONS')
+  response.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE,OPTIONS')
   response.setHeader('Content-Type', 'application/json; charset=utf-8')
   response.end(JSON.stringify(payload))
 }
@@ -87,7 +87,7 @@ function sendNoContent(response) {
   response.statusCode = 204
   response.setHeader('Access-Control-Allow-Origin', '*')
   response.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Admin-Key')
-  response.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,OPTIONS')
+  response.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE,OPTIONS')
   response.end()
 }
 
@@ -343,6 +343,25 @@ async function handleUpsertCar(request, response) {
 
   await writeDatabase(db)
   sendJson(response, current ? 200 : 201, normalized)
+}
+
+async function handleDeleteCar(response, id) {
+  if (isSupabaseEnabled()) {
+    sendJson(response, 501, { error: 'Eliminar carro no soportado en modo Supabase.' })
+    return
+  }
+
+  const db = await readDatabase()
+  const index = db.cars.findIndex((car) => car.id === id)
+
+  if (index === -1) {
+    sendJson(response, 404, { error: 'Carro no encontrado.' })
+    return
+  }
+
+  db.cars.splice(index, 1)
+  await writeDatabase(db)
+  sendJson(response, 200, { success: true })
 }
 
 async function handleCarStatus(request, response, id) {
@@ -625,6 +644,13 @@ export async function handleApiRequest(request, response) {
     if (request.method === 'PATCH' && carStatusMatch) {
       if (!requireAdmin(request, response)) return true
       await handleCarStatus(request, response, Number(carStatusMatch[1]))
+      return true
+    }
+
+    const carDeleteMatch = pathname.match(/^\/api\/cars\/(\d+)$/)
+    if (request.method === 'DELETE' && carDeleteMatch) {
+      if (!requireAdmin(request, response)) return true
+      await handleDeleteCar(response, Number(carDeleteMatch[1]))
       return true
     }
 
