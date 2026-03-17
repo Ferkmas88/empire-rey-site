@@ -855,10 +855,14 @@ async function renderCarsPage() {
       const car = cars.find((item) => String(item.id) === String(deleteButton.dataset.deleteCar))
       if (!car) return
       if (!confirm(`¿Eliminar "${car.title}"? Esta accion no se puede deshacer.`)) return
-      await deleteCar(car.id)
-      cars = await listCarsAdmin()
-      filterCars()
-      setNotice('Carro eliminado.')
+      try {
+        await deleteCar(car.id)
+        cars = await listCarsAdmin()
+        filterCars()
+        setNotice('Carro eliminado.')
+      } catch (error) {
+        setNotice(error.message || 'No se pudo eliminar el carro.')
+      }
     }
 
     if (editButton) {

@@ -7,6 +7,7 @@ import { getAdminPassword, getSupabaseUrl } from './env.js'
 import {
   createAppointmentSupabase,
   createSubscriberSupabase,
+  deleteCarSupabase,
   getSupabaseHealth,
   isSupabaseEnabled,
   listAppointmentsSupabase,
@@ -347,7 +348,8 @@ async function handleUpsertCar(request, response) {
 
 async function handleDeleteCar(response, id) {
   if (isSupabaseEnabled()) {
-    sendJson(response, 501, { error: 'Eliminar carro no soportado en modo Supabase.' })
+    const result = await deleteCarSupabase(id)
+    sendJson(response, 200, result)
     return
   }
 

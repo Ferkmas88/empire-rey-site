@@ -406,6 +406,17 @@ export async function updateCarStatusSupabase(id, status) {
   return data
 }
 
+export async function deleteCarSupabase(id) {
+  const supabase = getSupabaseClient()
+  const { error } = await supabase
+    .from('cars')
+    .delete()
+    .eq('id', id)
+
+  ensureNoSupabaseError(error, 'No se pudo eliminar el carro.')
+  return { success: true }
+}
+
 export async function listLeadsSupabase() {
   const supabase = getSupabaseClient()
   const { data, error } = await supabase
