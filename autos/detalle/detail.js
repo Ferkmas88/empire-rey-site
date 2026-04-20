@@ -27,7 +27,7 @@ const vehicleInput = document.getElementById('detail-vehicle')
 const carIdInput = document.getElementById('detail-car-id')
 
 if (!car) {
-  document.title = 'Inventario no disponible | Empire Rey Auto Sales & Mechanic'
+  document.title = 'Inventario no disponible | EMPIRE REY AUTO SALES #2 LLC'
   if (breadcrumb) breadcrumb.textContent = 'Sin inventario'
   if (carDetail) {
     carDetail.innerHTML = `
@@ -43,7 +43,7 @@ if (!car) {
   const gallery = car.gallery?.length ? car.gallery : [car.image || '/favicon.png']
   const isSold = car.status === 'sold'
 
-  document.title = `${car.title} | Empire Rey Auto Sales & Mechanic`
+  document.title = `${car.title} | EMPIRE REY AUTO SALES #2 LLC`
   if (breadcrumb) breadcrumb.textContent = car.title
   if (vehicleInput) vehicleInput.value = car.title
   if (carIdInput) carIdInput.value = car.id || ''

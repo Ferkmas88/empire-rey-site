@@ -10,13 +10,13 @@
     />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
-    <script type="module" crossorigin src="/assets/autos-CFnjbnjA.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/sanitize-DC8M2SXa.js">
-    <link rel="modulepreload" crossorigin href="/assets/forms-C7JywTBC.js">
-    <link rel="stylesheet" crossorigin href="/assets/forms-BV-JHccg.css">
-    <link rel="stylesheet" crossorigin href="/assets/autos-BGQIRzff.css">
+    <script type="module" crossorigin src="/assets/autos-DQ7zv158.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/sanitize-44yXa7MW.js">
+    <link rel="modulepreload" crossorigin href="/assets/forms-IdNfI7el.js">
+    <link rel="stylesheet" crossorigin href="/assets/forms-CwObKH0G.css">
+    <link rel="stylesheet" crossorigin href="/assets/autos-DNUW1h_2.css">
   </head>
   <body>
     <header class="site-header">
@@ -67,6 +67,16 @@
         <a class="btn-call" href="tel:+15025768116">Llamar</a>
       </nav>
     </header>
+    <script>
+      (function(){
+        const path = location.pathname.replace(/\/$/, '') || '/'
+        document.querySelectorAll('.nav-links a').forEach(a => {
+          const href = a.getAttribute('href') || ''
+          const hPath = href.split('#')[0].replace(/\/$/, '') || '/'
+          if (hPath && hPath !== '/' && path.startsWith(hPath)) a.classList.add('nav-active')
+        })
+      })()
+    </script>
 
     <main>
       <section id="updates" class="section autos-section autos-section--highlight autos-section--secondary autos-section--top-banner">
@@ -187,7 +197,8 @@
       <p><a href="tel:+15025768116">(502) 576-8116</a> | <a href="tel:+15027801096">(502) 780-1096</a></p>
       <p class="socials"><a href="/autos/">Ver inventario</a></p>
     </footer>
-
+
+    <script src="/cookie-consent.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
