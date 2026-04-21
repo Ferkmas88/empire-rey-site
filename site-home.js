@@ -53,12 +53,10 @@ const soldSrcs = Object.entries(soldFiles)
 const logoImage = document.getElementById('logoImage')
 const heroElement = document.querySelector('.hero')
 const heroSideVideo = document.getElementById('heroSideVideo')
-const offerCarImage = document.getElementById('offerCarImage')
 
 if (logoSrc && logoImage) logoImage.src = logoSrc
 if (heroSrc && heroElement) heroElement.style.backgroundImage = `url(${heroSrc})`
 if (heroSideVideoSrc && heroSideVideo) heroSideVideo.src = heroSideVideoSrc
-if (offerCarImage) offerCarImage.src = soldSrcs[0] || heroSrc || ''
 
 const soldGallery = document.getElementById('soldGallery')
 if (soldGallery) {
@@ -133,6 +131,27 @@ const observer = new IntersectionObserver(
 )
 sections.forEach((section) => observer.observe(section))
 
+const lazyVideos = document.querySelectorAll('video[data-src]')
+if (lazyVideos.length) {
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+        const video = entry.target
+        const src = video.dataset.src
+        if (src && !video.src) {
+          video.src = src
+          video.load()
+          video.play().catch(() => {})
+        }
+        videoObserver.unobserve(video)
+      })
+    },
+    { rootMargin: '200px' },
+  )
+  lazyVideos.forEach((v) => videoObserver.observe(v))
+}
+
 const menuToggle = document.getElementById('menuToggle')
 const navLinks = document.getElementById('navLinks')
 if (menuToggle && navLinks) {
@@ -155,73 +174,3 @@ if (reyStorySection) {
   window.addEventListener('resize', syncScrollProgress)
 }
 
-const offerPopup = document.getElementById('offerPopup')
-const offerBackdrop = document.getElementById('offerBackdrop')
-const offerClose = document.getElementById('offerClose')
-const closeOfferPopup = () => {
-  offerPopup?.classList.remove('active')
-  offerPopup?.setAttribute('aria-hidden', 'true')
-}
-const POPUP_KEY = 'empirerey_offer_seen'
-const POPUP_COOLDOWN_MS = 24 * 60 * 60 * 1000 // 24 horas
-
-const showOfferPopup = () => {
-  if (!offerPopup) return
-  offerPopup.classList.add('active')
-  offerPopup.setAttribute('aria-hidden', 'false')
-  localStorage.setItem(POPUP_KEY, Date.now().toString())
-}
-
-const shouldShowPopup = () => {
-  const last = localStorage.getItem(POPUP_KEY)
-  if (!last) return true
-  return Date.now() - parseInt(last, 10) > POPUP_COOLDOWN_MS
-}
-
-if (offerPopup && shouldShowPopup()) {
-  window.setTimeout(showOfferPopup, 1200)
-}
-
-offerBackdrop?.addEventListener('click', closeOfferPopup)
-offerClose?.addEventListener('click', closeOfferPopup)
-window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && offerPopup?.classList.contains('active')) closeOfferPopup()
-})
-
-const offerAnnouncement = document.getElementById('offerAnnouncement')
-const showOfferAnnouncement = () => {
-  if (!offerAnnouncement) return
-  offerAnnouncement.classList.add('is-visible')
-  offerAnnouncement.setAttribute('aria-hidden', 'false')
-  window.setTimeout(() => {
-    offerAnnouncement.classList.remove('is-visible')
-    offerAnnouncement.setAttribute('aria-hidden', 'true')
-  }, 9000)
-}
-
-if (offerAnnouncement) {
-  window.setTimeout(showOfferAnnouncement, 3000)
-  window.setInterval(showOfferAnnouncement, 30000)
-}
-
-const raffleSideAd = document.getElementById('raffleSideAd')
-const raffleSideAdClose = document.getElementById('raffleSideAdClose')
-const showRaffleSideAd = () => {
-  if (!raffleSideAd) return
-  raffleSideAd.classList.add('is-visible')
-  raffleSideAd.setAttribute('aria-hidden', 'false')
-  window.setTimeout(() => {
-    raffleSideAd.classList.remove('is-visible')
-    raffleSideAd.setAttribute('aria-hidden', 'true')
-  }, 12000)
-}
-
-if (raffleSideAd) {
-  window.setTimeout(showRaffleSideAd, 10000)
-  window.setInterval(showRaffleSideAd, 30000)
-}
-
-raffleSideAdClose?.addEventListener('click', () => {
-  raffleSideAd?.classList.remove('is-visible')
-  raffleSideAd?.setAttribute('aria-hidden', 'true')
-})

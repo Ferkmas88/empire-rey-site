@@ -92,7 +92,7 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/main-DOjYxvgV.js"></script>
+    <script type="module" crossorigin src="/assets/main-Csg1yqaR.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/sanitize-44yXa7MW.js">
     <link rel="modulepreload" crossorigin href="/assets/forms-rW6sjMgN.js">
     <link rel="stylesheet" crossorigin href="/assets/forms-DjNm-iTh.css">
@@ -188,7 +188,7 @@
           </div>
           <aside class="hero-side-media" aria-label="Video destacado">
             <article class="hero-media-card">
-              <video id="heroSideVideo" autoplay muted loop playsinline></video>
+              <video id="heroSideVideo" autoplay muted loop playsinline preload="metadata"></video>
             </article>
           </aside>
         </div>
@@ -289,12 +289,11 @@
           <div class="mascot-image-wrap mascot-video-wrap">
             <video
               id="mascotVideo"
-              src="/mascota/leon-v2.mp4"
-              autoplay
+              data-src="/mascota/leon-v2.mp4"
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="none"
               aria-label="Video mascota Empire Rey"
             ></video>
           </div>
@@ -396,64 +395,6 @@
       aria-label="WhatsApp (502) 576-8116"
       >WhatsApp</a
     >
-
-    <div id="offerAnnouncement" class="offer-announcement" aria-live="polite" aria-hidden="true">
-      <div class="offer-announcement__badge">
-        <span class="offer-announcement__icon" aria-hidden="true">%</span>
-        <span>OFERTA ESPECIAL</span>
-      </div>
-      <p>&iquest;Madre soltera? &iexcl;Tenemos planes especiales para ti desde $85/semana!</p>
-      <p>&iquest;Tienes un carro viejo? &iexcl;Lo recibimos como parte de pago!</p>
-    </div>
-
-    <div id="offerPopup" class="offer-popup" aria-hidden="true">
-      <div id="offerBackdrop" class="offer-backdrop"></div>
-      <article class="offer-modal" role="dialog" aria-modal="true" aria-labelledby="offerTitle">
-        <button id="offerClose" class="offer-close" type="button" aria-label="Cerrar oferta">x</button>
-        <div class="offer-media">
-          <img id="offerCarImage" alt="Auto de oferta Empire Rey" loading="lazy" />
-        </div>
-        <div class="offer-copy">
-          <p class="offer-chip">Oferta Especial</p>
-          <h3 id="offerTitle">Deja tu review + captura y recibe $500 OFF</h3>
-          <p>
-            Si dejas tu review en Google y nos ense&ntilde;as una captura de pantalla, te damos
-            <strong>$500 de descuento</strong>.
-          </p>
-          <div class="offer-actions">
-            <a
-              class="btn-gold"
-              href="https://g.page/r/CQrrAd8nVQZXEBM/review"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Dejar Review</a
-            >
-            <a class="offer-secondary" href="https://wa.me/15025768116" target="_blank" rel="noopener noreferrer"
-              >Enviar Captura</a
-            >
-          </div>
-          <p class="offer-note">Aplican terminos y condiciones.</p>
-        </div>
-      </article>
-    </div>
-
-    <aside id="raffleSideAd" class="raffle-side-ad" aria-live="polite" aria-hidden="true">
-      <button id="raffleSideAdClose" class="raffle-side-ad__close" type="button" aria-label="Cerrar anuncio">
-        x
-      </button>
-      <p class="raffle-side-ad__title">&#128663; &iexcl;RIFAMOS CARROS!</p>
-      <p class="raffle-side-ad__subtitle">En Empire Rey Auto Sales</p>
-      <p>&#127915; Participa y gana tu auto</p>
-      <p>&#128165; Sorteos especiales para nuestra comunidad</p>
-      <a
-        class="btn-gold raffle-side-ad__cta"
-        href="https://wa.me/15025768116"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        &#128073; Pregunta c&oacute;mo participar
-      </a>
-    </aside>
 
     <footer class="site-footer">
       <p>Empire Rey - Sales & Mechanic</p>
