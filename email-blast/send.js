@@ -5,11 +5,16 @@
 import { Resend } from 'resend'
 import { createClient } from '@supabase/supabase-js'
 
-const RESEND_API_KEY   = 'REDACTED_RESEND_KEY'
-const SUPABASE_URL     = 'https://wqblkchdviysetlkjago.supabase.co'
-const SUPABASE_KEY     = 'REDACTED_SUPABASE_SERVICE_KEY'
-const FROM_EMAIL       = 'Empire Rey <noreply@digitalamwebsites.com>'
-const SITE_URL         = 'https://empireautorey.com'
+const RESEND_API_KEY   = process.env.RESEND_API_KEY
+const SUPABASE_URL     = process.env.SUPABASE_URL
+const SUPABASE_KEY     = process.env.SUPABASE_SERVICE_ROLE_KEY
+const FROM_EMAIL       = process.env.FROM_EMAIL || 'Empire Rey <noreply@digitalamwebsites.com>'
+const SITE_URL         = process.env.SITE_URL || 'https://empireautorey.com'
+
+if (!RESEND_API_KEY || !SUPABASE_URL || !SUPABASE_KEY) {
+  console.error('Missing env: RESEND_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY')
+  process.exit(1)
+}
 
 const resend   = new Resend(RESEND_API_KEY)
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)

@@ -9,6 +9,11 @@ lerna-debug.log*
 
 node_modules
 *.local
+
+# Env / secrets
+.env
+.env.*
+!.env.example
 server/data/db.json
 server/data/backups/
 
